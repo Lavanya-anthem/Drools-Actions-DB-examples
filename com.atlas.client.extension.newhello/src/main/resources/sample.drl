@@ -1,0 +1,8 @@
+import com.antheminc.oss.nimbus.domain.model.state.internal.DefaultParamState;
+
+rule "output"
+when
+$core : DefaultParamState($core.findParamByPath("/../itname").getState()!=null)
+then
+$core.findParamByPath("/../otname").setState($core.findParamByPath("/../itname").getState());
+end
